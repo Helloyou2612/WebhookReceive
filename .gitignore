@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/WebhookReceive
+/NetCore/obj
+/packages
+/NetFramework/bin
+/NetFramework/obj/Debug
