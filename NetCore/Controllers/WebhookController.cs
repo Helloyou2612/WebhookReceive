@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Text;
+using Core.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,22 +12,11 @@ namespace NetCore.Controllers
     {
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IHttpActionResult> WebhookReceive()
+        public async Task<IActionResult> WebhookReceive()
         {
             try
             {
-                var domainName = this.Request.RequestUri.Host;
-                var crmDomainName = domainName.Split(new[] { "." }, StringSplitOptions.None)[0];
-                string rawContent;
-                using (var contentStream = await this.Request.Content.ReadAsStreamAsync())
-                {
-                    contentStream.Seek(0, SeekOrigin.Begin);
-                    using (var sr = new StreamReader(contentStream))
-                    {
-                        rawContent = await sr.ReadToEndAsync();
-                        // use raw content here
-                    }
-                }
+                var rawContent = await Request.GetRawBodyStringAsync();
                 //var model = JsonConvert.DeserializeObject<CustomerUpdateModel>(rawContent);
                 return Ok(rawContent);
             }

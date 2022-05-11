@@ -13,8 +13,6 @@ namespace WebhookReceive.Controllers
         {
             try
             {
-                var domainName = Request.RequestUri.Host;
-                var crmDomainName = domainName.Split(new[] { "." }, StringSplitOptions.None)[0];
                 string rawContent;
                 using (var contentStream = await Request.Content.ReadAsStreamAsync())
                 {
