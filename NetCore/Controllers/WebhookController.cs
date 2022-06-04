@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Core.Extensions;
+using NetCore.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

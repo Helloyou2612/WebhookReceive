@@ -8,3 +8,7 @@
 /NetFramework/bin
 /NetFramework/obj/Debug
 /Core/obj
+/.vs/ProjectEvaluation
+/MinialApi/bin/Debug/net6.0
+/MinialApi/obj
+/NetCore/bin/Debug/net6.0
